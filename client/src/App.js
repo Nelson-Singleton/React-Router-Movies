@@ -3,9 +3,15 @@ import axios from 'axios';
 
 import SavedList from './Movies/SavedList';
 
+import { Link, Route, Switch } from 'react-router-dom'
+
+
+
 const App = () => {
   const [saved, setSaved] = useState([]); // Stretch: the ids of "saved" movies
   const [movieList, setMovieList] = useState([]);
+
+  
 
   useEffect(() => {
     const getMovies = () => {
@@ -28,7 +34,11 @@ const App = () => {
   return (
     <div>
       <SavedList list={[ /* This is stretch */]} />
-      <div>Replace this Div with your Routes</div>
+      <Route path='/' component = {MovieList}>
+      </Route>
+      
+      <Route path='/movies/:id' component = {movie}>
+      </Route>
     </div>
   );
 };
