@@ -6,6 +6,7 @@ import SavedList from './Movies/SavedList';
 import { Link, Route, Switch } from 'react-router-dom'
 import MovieList from './Movies/MovieList'
 import Movie from './Movies/Movie'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 
 
@@ -37,14 +38,17 @@ const App = () => {
   return (
     <div>
       <SavedList list={[ /* This is stretch */]} />
-    
-      <Route path = '/'>
-        <MovieList movies = {movieList} />  
-      </Route>
+      {/* <Switch> */}
       
       <Route path='/movies/:id' >
         <Movie />
       </Route>
+      <Route path = '/'>
+        <MovieList movies = {movieList} />  
+      </Route>
+      
+      
+      {/* </Switch> */}
     
     </div>
   );
